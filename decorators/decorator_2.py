@@ -12,7 +12,7 @@ def logger(path):
             try:
                 result = old_function(*args, **kwargs)
                 with open(path, 'a', encoding='utf-8') as f:
-                    f.write(f"Дата и время вызова функции: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}\nимя функции: {str(old_function).split()[1].split('.')[2]}\nаргументы, с которыми вызвалась функция: {args} и {kwargs}\nвозвращаемое значение: {result}\n")
+                    f.write(f"Дата и время вызова функции: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}\nимя функции: {old_function.__name__}\nаргументы, с которыми вызвалась функция: {args} и {kwargs}\nвозвращаемое значение: {result}\n")
                 return result
             except Exception as e:
                 print(f'Ошибка: {e}')
